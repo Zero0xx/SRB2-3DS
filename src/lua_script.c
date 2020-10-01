@@ -136,6 +136,9 @@ int LUA_PushGlobals(lua_State *L, const char *word)
 	if (fastcmp(word,"gamemap")) {
 		lua_pushinteger(L, gamemap);
 		return 1;
+	} else if (fastcmp(word,"udmf")) {
+		lua_pushboolean(L, udmf);
+		return 1;
 	} else if (fastcmp(word,"maptol")) {
 		lua_pushinteger(L, maptol);
 		return 1;
@@ -343,6 +346,12 @@ int LUA_PushGlobals(lua_State *L, const char *word)
 		return 1;
 	} else if (fastcmp(word,"gravity")) {
 		lua_pushinteger(L, gravity);
+		return 1;
+	} else if (fastcmp(word,"VERSION")) {
+		lua_pushinteger(L, VERSION);
+		return 1;
+	} else if (fastcmp(word,"SUBVERSION")) {
+		lua_pushinteger(L, SUBVERSION);
 		return 1;
 	} else if (fastcmp(word,"VERSIONSTRING")) {
 		lua_pushstring(L, VERSIONSTRING);
