@@ -727,8 +727,8 @@ void G_DefineDefaultControls(void)
 	{
 		gamecontroldefault[i][gc_jump       ][0] = KEY_JOY1+1;  //B
 		gamecontroldefault[i][gc_jump       ][1] = KEY_JOY1+7;  //R
-		gamecontroldefault[i][gc_use        ][0] = KEY_JOY1+3;  //Y
-		gamecontroldefault[i][gc_use        ][1] = KEY_JOY1+6;  //L
+		gamecontroldefault[i][gc_spin       ][0] = KEY_JOY1+3;  //Y
+		gamecontroldefault[i][gc_spin       ][1] = KEY_JOY1+6;  //L
 		gamecontroldefault[i][gc_turnright  ][0] = KEY_JOY1+9;  //ZR
 		gamecontroldefault[i][gc_turnleft   ][0] = KEY_JOY1+8;  //ZL
 		gamecontroldefault[i][gc_centerview ][0] = KEY_JOY1+5;  //stick R

@@ -83,6 +83,7 @@
 
 ALL_SYSTEMS=\
 	PANDORA\
+	SWITCH\
 	LINUX64\
 	MINGW64\
 	HAIKU\
@@ -95,6 +96,8 @@ ALL_SYSTEMS=\
 	FREEBSD\
 	MACOSX\
 	SDL\
+
+ifndef SWITCH # i dont fucking care anymore
 
 # check for user specified system
 ifeq (,$(filter $(ALL_SYSTEMS),$(.VARIABLES)))
@@ -132,6 +135,7 @@ else # if you on the *nix
 endif
 endif
 
+endif
 
 # SRB2 data files
 D_DIR?=../bin/Resources
@@ -195,17 +199,20 @@ NONX86=1
 NOHW=1
 endif
 
+ifdef ENABLE_NXLINK
+	CPPFLAGS+=-DENABLE_NXLINK
+endif
+
 ifdef SWITCH
+NOGME=1
 NOOPENMPT=1
 NOOBJDUMP=1
 NOASM=1
 NONX86=1
 NOHW=1
 OBJS+=$(OBJDIR)/switch/swkbd.o
-endif
-
-ifdef ENABLE_NXLINK
-	CPPFLAGS+=-DENABLE_NXLINK
+NOCURL=1
+SDL=1
 endif
 
 ifndef NOOPENMPT
