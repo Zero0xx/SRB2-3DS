@@ -1,0 +1,39 @@
+name: Nintendo Switch
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    container: devkitpro/devkita64:20200730
+    steps:
+    - name: Install 7z/zip
+      run: apt install -y zip p7zip-full
+    - name: Checkout repo
+      uses: actions/checkout@v1
+    - name: Download assets
+      run: sh ./downloadassets.sh
+    - name: make clean
+      run: make -C src/ SWITCH=1 clean
+    - name: make 
+      run: make -C src/ SWITCH=1
+    - name: Upload NRO
+      uses: actions/upload-artifact@v2
+      with:
+        path: bin/Switch/Release/srb2switch22_*.nro
+    - name: Upload full zip
+      uses: actions/upload-artifact@v2
+      with:
+        path: bin/Switch/Release/srb2switch22_*.full.zip
+    - name: Upload NRO update zip
+      uses: actions/upload-artifact@v2
+      with:
+        path: bin/Switch/Release/srb2switch22_*.update.nro.zip
+    - name: Upload update zip
+      uses: actions/upload-artifact@v2
+      with:
+        path: bin/Switch/Release/srb2switch22_*.update.zip
