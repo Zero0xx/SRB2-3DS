@@ -1140,7 +1140,6 @@ void CHAT_Close() {
 }
 
 void CHAT_SetText(const char* str) {
-	// if (strlen(str) > HU_MAXMSGLEN) return; // Overflow prevention
 	SDL_strlcpy(w_chat, str, HU_MAXMSGLEN);
 }
 
@@ -1153,18 +1152,16 @@ void CHAT_SendText(const char* str) {
 
 #ifdef __SWITCH__
 
-#include "switch/swkbd.h"
-
-void CHAT_Switch_SwkbdChanged(const char* str, SwkbdChangedStringArg* arg) {
+SwkbdChangedStringCb CHAT_Switch_SwkbdChanged(const char* str, SwkbdChangedStringArg* arg) {
 	CHAT_SetText(str);
 	c_input = arg->cursorPos;
 }
 
-void CHAT_Switch_SwkbdMovedCursor(const char* str, SwkbdMovedCursorArg* arg) {
+SwkbdMovedCursorCb CHAT_Switch_SwkbdMovedCursor(const char* str, SwkbdMovedCursorArg* arg) {
 	c_input = arg->cursorPos;
 }
 
-void CHAT_Switch_SwkbdDecidedEnter(const char* str, SwkbdDecidedEnterArg* arg) {
+SwkbdDecidedEnterCb CHAT_Switch_SwkbdDecidedEnter(const char* str, SwkbdDecidedEnterArg* arg) {
 	CHAT_SendText(str);
 }
 

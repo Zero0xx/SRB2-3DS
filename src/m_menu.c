@@ -75,10 +75,6 @@
 #endif
 #endif
 
-#ifdef __SWITCH__
-#include "switch/swkbd.h"
-#endif
-
 #if defined (__GNUC__) && (__GNUC__ >= 4)
 #define FIXUPO0
 #endif
@@ -2701,13 +2697,8 @@ static boolean MIT_ChangeMusic(UINT32 menutype, INT32 level, INT32 *retval, void
 }
 
 #ifdef __SWITCH__
-void M_Responder_Switch_SwkbdChanged(const char* str, SwkbdChangedStringArg* arg) {
+SwkbdChangedStringCb M_Responder_Switch_SwkbdChanged(const char* str, SwkbdChangedStringArg* arg) {
 	CV_Set(currentMenu->menuitems[itemOn].itemaction, str);
-}
-
-void M_Responder_Switch_SwkbdMovedCursor(const char* str, SwkbdChangedStringArg* arg) {
-	char *currentStr = ((consvar_t *)currentMenu->menuitems[itemOn].itemaction)->string;
-	swkbdInlineSetCursorPos(&switch_kbdinline, strlen(currentStr)); // Place swkbd cursor at string end
 }
 #endif
 
@@ -11537,17 +11528,17 @@ static void M_ConnectIP(INT32 choice)
 
 #ifdef __SWITCH__
 
-void M_HandleConnectIP_Switch_SwkbdChanged(const char* str, SwkbdChangedStringArg* arg) {
+SwkbdChangedStringCb M_HandleConnectIP_Switch_SwkbdChanged(const char* str, SwkbdChangedStringArg* arg) {
 	SDL_strlcpy(setupm_ip, str, sizeof(setupm_ip));
 }
 
-void M_HandleConnectIP_Switch_SwkbdDecidedEnter(const char* str, SwkbdChangedStringArg* arg) {
+SwkbdDecidedEnterCb M_HandleConnectIP_Switch_SwkbdDecidedEnter(const char* str, SwkbdDecidedEnterArg* arg) {
 	S_StartSound(NULL,sfx_menu1); // Tails
 	currentMenu->lastOn = itemOn;
 	M_ConnectIP(1);
 }
 
-void M_HandleConnectIP_Switch_SwkbdMovedCursor(const char* str, SwkbdChangedStringArg* arg) {
+SwkbdMovedCursorCb M_HandleConnectIP_Switch_SwkbdMovedCursor(const char* str, SwkbdMovedCursorArg* arg) {
 	swkbdInlineSetCursorPos(&switch_kbdinline, strlen(setupm_ip)); // Place swkbd cursor at string end
 }
 

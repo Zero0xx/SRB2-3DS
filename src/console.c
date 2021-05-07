@@ -43,10 +43,6 @@
 #include "hardware/hw_main.h"
 #endif
 
-#ifdef __SWITCH__
-#include "switch/swkbd.h"
-#endif
-
 #define MAXHUDLINES 20
 
 #ifdef HAVE_THREADS
@@ -895,16 +891,16 @@ static void CON_InputDelChar(void)
 
 #ifdef __SWITCH__
 
-void CON_Responder_SWITCH_SwkbdChanged_cb(const char* str, SwkbdChangedStringArg* arg) {
+SwkbdChangedStringCb CON_Responder_SWITCH_SwkbdChanged_cb(const char* str, SwkbdChangedStringArg* arg) {
 	CON_InputSetString(str);
 	input_cur = arg->cursorPos;
 }
 
-void CON_Responder_SWITCH_SwkbdMovedCursor_cb(const char* str, SwkbdMovedCursorArg* arg) {
+SwkbdMovedCursorCb CON_Responder_SWITCH_SwkbdMovedCursor_cb(const char* str, SwkbdMovedCursorArg* arg) {
 	input_cur = arg->cursorPos;
 }
 
-void CON_Responder_SWITCH_SwkbdDecidedEnter_cb(const char* str, SwkbdDecidedEnterArg* arg) {
+SwkbdDecidedEnterCb CON_Responder_SWITCH_SwkbdDecidedEnter_cb(const char* str, SwkbdDecidedEnterArg* arg) {
 	CON_InputSetString(str);
 
 	if (!input_len)
