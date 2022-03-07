@@ -1,4 +1,5 @@
 # Sonic Robo Blast 2
+[![latest release](https://badgen.net/github/release/STJr/SRB2/stable)](https://github.com/STJr/SRB2/releases/latest)
 
 [![Nintendo Switch](https://github.com/heyjoeway/SRB2/actions/workflows/switch.yml/badge.svg)](https://github.com/heyjoeway/SRB2/actions/workflows/switch.yml)
 
