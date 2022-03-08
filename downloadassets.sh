@@ -1,6 +1,6 @@
 #!/bin/sh
-FULLURL="https://github.com/STJr/SRB2/releases/download/SRB2_release_2.2.9/SRB2-v229-Full.zip"
-PATCHURL="https://github.com/STJr/SRB2/releases/download/SRB2_release_2.2.9/SRB2-v229-Patch.zip"
+FULLURL="https://github.com/STJr/SRB2/releases/download/SRB2_release_2.2.10/SRB2-v2210-Full.zip"
+PATCHURL=""
 DOWNLOADCMD="curl -Lo"
 
 cd assets

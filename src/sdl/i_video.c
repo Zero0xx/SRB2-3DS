@@ -1156,7 +1156,7 @@ void I_OsPolling(void)
 {
 	#ifdef __SWITCH__
 		// Disable input if software keyboard is up
-		if (switch_kbdstate == SwkbdState_TextAvailable)
+		if (switch_kbdstate == SwkbdState_Shown)
 			return;
 	#endif
 	

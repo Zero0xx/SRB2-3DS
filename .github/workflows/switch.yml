@@ -20,26 +20,11 @@ jobs:
     - name: Download assets
       run: sh ./downloadassets.sh
     - name: make clean
-      run: make -C src/ SWITCH=1 clean
+      run: make PLATFORM=Switch clean
     - name: make 
-      run: make -C src/ SWITCH=1
+      run: make PLATFORM=Switch
     - name: Upload NRO
       uses: actions/upload-artifact@v2
       with:
         name: nro
-        path: bin/Switch/Release/srb2switch22.nro
-    - name: Upload full zip
-      uses: actions/upload-artifact@v2
-      with:
-        name: full
-        path: bin/Switch/Release/srb2switch22_*.full.zip
-    - name: Upload NRO update zip
-      uses: actions/upload-artifact@v2
-      with:
-        name: update_nro
-        path: bin/Switch/Release/srb2switch22_*.update.nro.zip
-    - name: Upload update zip
-      uses: actions/upload-artifact@v2
-      with:
-        name: update
-        path: bin/Switch/Release/srb2switch22_*.update.zip
+        path: bin/Switch/srb2switch22.nro

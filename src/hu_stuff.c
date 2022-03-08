@@ -1020,7 +1020,7 @@ void CHAT_SetText(const char* str) {
 
 void CHAT_SendText(const char* str) {
 	CHAT_SetText(str);
-	CHAT_Send();
+	HU_sendChatMessage();
 	CHAT_Close();
 	chat_scrollmedown = true; // you hit enter, so you might wanna autoscroll to see what you just sent. :)
 }
@@ -1102,13 +1102,13 @@ boolean HU_Responder(event_t *ev)
 	if (!chat_on)
 	{
 		boolean talkKeyPressed = (
-			ev->data1 == gamecontrol[gc_talkkey][0] ||
-			ev->data1 == gamecontrol[gc_talkkey][1]
+			c == gamecontrol[GC_TALKKEY][0] ||
+			c == gamecontrol[GC_TALKKEY][1]
 		); // Check both binds
 
 		boolean teamKeyPressed = (
-			ev->data1 == gamecontrol[gc_teamkey][0] ||
-			ev->data1 == gamecontrol[gc_teamkey][1]
+			c == gamecontrol[GC_TEAMKEY][0] ||
+			c == gamecontrol[GC_TEAMKEY][1]
 		); // Check both binds
 
 		// enter chat mode

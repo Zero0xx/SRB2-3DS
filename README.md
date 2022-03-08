@@ -50,13 +50,13 @@ See [SRB2 Wiki/Source code compiling](http://wiki.srb2.org/wiki/Source_code_comp
 
 Follow the instructions [here](http://wiki.srb2.org/wiki/Source_code_compiling/Makefiles), using the following make command:
 ```
-make -C src/ SWITCH=1
+make PLATFORM=Switch
 ```
 Or, if you want to enable network debugging:
 ```
-make -C src/ SWITCH=1 ENABLE_NXLINK=1
+make PLATFORM=Switch NXLINK=1
 ```
-If you plan on switching flags, make sure to run `make clean` first.
+If you plan on switching flags, make sure to run `make PLATFORM=Switch clean` first.
 
 More complete build instructions coming soon(TM).
 
