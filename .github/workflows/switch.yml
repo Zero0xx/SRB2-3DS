@@ -32,14 +32,14 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: full
-        path: bin/Switch/Release/srb2switch22_*.full.zip
+        path: bin/Switch/srb2switch22_*.full.zip
     - name: Upload NRO update zip
       uses: actions/upload-artifact@v2
       with:
         name: update_nro
-        path: bin/Switch/Release/srb2switch22_*.update.nro.zip
+        path: bin/Switch/srb2switch22_*.update.nro.zip
     # - name: Upload update zip
     #   uses: actions/upload-artifact@v2
     #   with:
     #     name: update
-    #     path: bin/Switch/Release/srb2switch22_*.update.zip
+    #     path: bin/Switch/srb2switch22_*.update.zip
