@@ -1928,9 +1928,9 @@ void CL_UpdateServerList(boolean internetsearch, INT32 room)
 static void M_ConfirmConnect(event_t *ev)
 {
 #ifndef NONET
-	if (ev->type == ev_keydown)
-	{
-		if (ev->key == ' ' || ev->key == 'y' || ev->key == KEY_ENTER)
+	// if (ev->type == ev_keydown)
+	// {
+		if (ev->key == ' ' || ev->key == 'y' || ev->key == KEY_ENTER || ev->key == KEY_JOY1)
 		{
 			if (totalfilesrequestednum > 0)
 			{
@@ -1950,7 +1950,7 @@ static void M_ConfirmConnect(event_t *ev)
 			cl_mode = CL_ABORTED;
 			M_ClearMenus(true);
 		}
-	}
+	// }
 #else
 	(void)ev;
 #endif

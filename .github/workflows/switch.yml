@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    container: devkitpro/devkita64:20200730
+    container: devkitpro/devkita64:20220216
     steps:
     - name: Install 7z/zip
       run: |
@@ -28,3 +28,18 @@ jobs:
       with:
         name: nro
         path: bin/Switch/srb2switch22.nro
+    - name: Upload full zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: full
+        path: bin/Switch/Release/srb2switch22_*.full.zip
+    - name: Upload NRO update zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: update_nro
+        path: bin/Switch/Release/srb2switch22_*.update.nro.zip
+    - name: Upload update zip
+      uses: actions/upload-artifact@v2
+      with:
+        name: update
+        path: bin/Switch/Release/srb2switch22_*.update.zip

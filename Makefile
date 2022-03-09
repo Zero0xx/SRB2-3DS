@@ -70,9 +70,6 @@ endif
 
 CFLAGS += `$(PKGCONFIG) --cflags sdl2 ogg vorbis theora vorbisfile theoradec SDL2_mixer zlib`
 LIBS   += `$(PKGCONFIG) --libs-only-l --libs-only-L sdl2 ogg vorbis theora vorbisfile theoradec SDL2_mixer zlib`
-LIBS   += -lcurl
-
-#CFLAGS += -Wno-strict-aliasing -Wno-narrowing -Wno-write-strings
 
 ifeq ($(STATIC),1)
 	CFLAGS += -static
@@ -219,11 +216,8 @@ SOURCES = \
 	src/blua/ltm \
 	src/blua/lvm \
 	src/comptime \
-	src/switch/swkbd \
-	# src/switch/polyfill/sha256 \
+	src/switch/swkbd
 
-
-# src/vid_copy \
 
 PKGSUFFIX ?= $(SUFFIX)
 
