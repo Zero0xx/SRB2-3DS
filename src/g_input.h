@@ -23,7 +23,7 @@
 #define NUMKEYS 256
 
 
-#if defined (__SWITCH__)
+#if defined (__3DS__)
 #define MOUSEBUTTONS 3
 #define JOYBUTTONS   16 // 16 buttons
 #define JOYHATS      0  // 0 hat

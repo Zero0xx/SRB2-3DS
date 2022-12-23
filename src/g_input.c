@@ -18,6 +18,8 @@
 #include "hu_stuff.h" // need HUFONT start & end
 #include "d_net.h"
 #include "console.h"
+#include <3ds.h> // 3ds stuff
+#include <stdio.h> // 3ds stuff
 
 #define MAXMOUSESENSITIVITY 100 // sensitivity steps
 
@@ -326,23 +328,23 @@ static keyname_t keynames[] =
 	{KEY_2MOUSEWHEELUP, "wheel 2 up"},
 	{KEY_2MOUSEWHEELDOWN, "wheel 2 down"},
 
-#if defined (__SWITCH__)
-	{KEY_JOY1+0,  "JOYA"},
-	{KEY_JOY1+1,  "JOYB"},
-	{KEY_JOY1+2,  "JOYX"},
-	{KEY_JOY1+3,  "JOYY"},
-	{KEY_JOY1+4,  "JOYSTICKL"},
-	{KEY_JOY1+5,  "JOYSTICKR"},
-	{KEY_JOY1+6,  "JOYL"},
-	{KEY_JOY1+7,  "JOYR"},
-	{KEY_JOY1+8,  "JOYZL"},
-	{KEY_JOY1+9,  "JOYZR"},
-	{KEY_JOY1+10, "JOYPLUS"},
-	{KEY_JOY1+11, "JOYMINUS"},
-	{KEY_JOY1+12, "JOYLEFT"},
-	{KEY_JOY1+13, "JOYUP"},
-	{KEY_JOY1+14, "JOYRIGHT"},
-	{KEY_JOY1+15, "JOYDOWN"},
+#if defined (__3DS__)
+	{KEY_JOY1+0,  "KEY_A"},
+	{KEY_JOY1+1,  "KEY_B"},
+	{KEY_JOY1+2,  "KEY_X"},
+	{KEY_JOY1+3,  "KEY_Y"},
+	{KEY_JOY1+4,  "KEY_CSTICK"},
+	{KEY_JOY1+5,  "KEY_CPAD"},
+	{KEY_JOY1+6,  "KEY_L"},
+	{KEY_JOY1+7,  "KEY_R"},
+	{KEY_JOY1+8,  "KEY_ZL"},
+	{KEY_JOY1+9,  "KEY_ZR"},
+	{KEY_JOY1+10, "KEY_START"},
+	{KEY_JOY1+11, "KEY_SELECT"},
+	{KEY_JOY1+12, "KEY_DLEFT"},
+	{KEY_JOY1+13, "KEY_DUP"},
+	{KEY_JOY1+14, "KEY_DRIGHT"},
+	{KEY_JOY1+15, "KEY_DDOWN"},
 	#define NOMOREJOYBTN_1S
 #else
 	{KEY_JOY1+0, "joy1"},
